@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from gws_core.config.param.select_param import SelectParam
 from pathlib import Path
 from typing import Final
 from gws_core import (
@@ -39,9 +40,9 @@ class OD260ToUgml(Task):
     config_specs: Final[ConfigSpecs] = ConfigSpecs({
         "prefix": StrParam(default_value="od260_to_ugml", short_description="Préfixe du fichier JSON"),
         "od260": StrParam(default_value="", short_description="Valeur OD à 260 nm"),
-        "sample_type": StrParam(
+        "sample_type": SelectParam(
             default_value="DNA",
-            allowed_values=["DNA", "RNA", "Single-stranded-DNA", "Single-stranded-Oligo"],
+            options=["DNA", "RNA", "Single-stranded-DNA", "Single-stranded-Oligo"],
             short_description="Type d'échantillon : DNA | RNA | Single-stranded-DNA | Single-stranded-Oligo"
         )
     })

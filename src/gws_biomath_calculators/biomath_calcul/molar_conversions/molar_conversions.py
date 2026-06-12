@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from gws_core.config.param.select_param import SelectParam
 from pathlib import Path
 from typing import Final
 import shlex
@@ -97,9 +98,9 @@ class MolarConversions(Task):
 
     config_specs: Final[ConfigSpecs] = ConfigSpecs({
         "prefix": StrParam(default_value="molar_conversions", short_description="Output JSON prefix"),
-        "calculate_for": StrParam(
+        "calculate_for": SelectParam(
             default_value="Protein Size (kDa)",
-            allowed_values=["Protein Size (kDa)", "pmol of Protein", "μg of Protein"],
+            options=["Protein Size (kDa)", "pmol of Protein", "μg of Protein"],
             short_description=(
                 "Select what to calculate. Requirements:\n"
                 "• Protein Size (kDa): requires µg of Protein AND pmol of Protein\n"

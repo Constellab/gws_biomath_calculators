@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from gws_core.config.param.select_param import SelectParam
 from pathlib import Path
 from typing import Final
 import shlex
@@ -98,20 +99,20 @@ class BioSeqMW(Task):
 
     config_specs: Final[ConfigSpecs] = ConfigSpecs({
         "prefix": StrParam(default_value="bioseq_mw", short_description="Output JSON prefix"),
-        "type": StrParam(default_value="DNA", allowed_values=["DNA", "RNA", "PROTEIN"], short_description="Sequence type"),
-        "strand": StrParam(
+        "type": SelectParam(default_value="DNA", options=["DNA", "RNA", "PROTEIN"], short_description="Sequence type"),
+        "strand": SelectParam(
             default_value="",
-            allowed_values=["", "ss", "ds"],
+            options=["", "ss", "ds"],
             short_description="For DNA/RNA: ss or ds. For PROTEIN: leave EMPTY ('')."
         ),
-        "topology": StrParam(
+        "topology": SelectParam(
             default_value="",
-            allowed_values=["", "linear", "circular"],
+            options=["", "linear", "circular"],
             short_description="For DNA/RNA: linear or circular. For PROTEIN: leave EMPTY ('')."
         ),
-        "five_prime": StrParam(
+        "five_prime": SelectParam(
             default_value="",
-            allowed_values=["", "hydroxyl", "phosphate", "triphosphate"],
+            options=["", "hydroxyl", "phosphate", "triphosphate"],
             short_description="For DNA/RNA: 5′ end chemistry. For PROTEIN: leave EMPTY ('')."
         )
     })

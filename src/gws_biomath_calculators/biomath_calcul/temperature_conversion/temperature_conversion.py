@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from gws_core.config.param.select_param import SelectParam
 from pathlib import Path
 from typing import Final
 import shlex
@@ -48,9 +49,9 @@ class TemperatureConversion(Task):
     config_specs: Final[ConfigSpecs] = ConfigSpecs({
         "prefix": StrParam(default_value="temperature_conversion", short_description="Output JSON prefix"),
         "value": StrParam(default_value="", short_description="Temperature value to convert"),
-        "unit": StrParam(
+        "unit": SelectParam(
             default_value="C",
-            allowed_values=["C", "F", "K"],
+            options=["C", "F", "K"],
             short_description="Temperature unit: C (Celsius), F (Fahrenheit), K (Kelvin)"
         )
     })

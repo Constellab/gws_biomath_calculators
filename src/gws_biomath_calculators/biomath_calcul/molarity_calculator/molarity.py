@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from gws_core.config.param.select_param import SelectParam
 from pathlib import Path
 from typing import Final
 import shlex
@@ -45,22 +46,22 @@ class MolarityCalculator(Task):
         "mw": StrParam(default_value="", short_description="Molecular Weight (g/mol)"),
 
         "molarity": StrParam(default_value="", short_description="Final concentration"),
-        "mol_unit": StrParam(
+        "mol_unit": SelectParam(
             default_value="mM",
-            allowed_values=["M", "mM", "µM"],
+            options=["M", "mM", "µM"],
             short_description="Unit for final concentration"
         ),
 
         "final_vol": StrParam(default_value="", short_description="Final volume"),
-        "vol_unit": StrParam(
+        "vol_unit": SelectParam(
             default_value="mL",
-            allowed_values=["L", "mL", "µL"],
+            options=["L", "mL", "µL"],
             short_description="Unit for final volume"
         ),
 
-        "mass_unit_out": StrParam(
+        "mass_unit_out": SelectParam(
             default_value="g",
-            allowed_values=["g", "mg", "µg"],
+            options=["g", "mg", "µg"],
             short_description="Output mass unit."
         ),
     })

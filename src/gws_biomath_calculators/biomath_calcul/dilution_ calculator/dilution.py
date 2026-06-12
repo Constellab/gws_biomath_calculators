@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from gws_core.config.param.select_param import SelectParam
 from pathlib import Path
 from typing import Final
 import shlex
@@ -40,30 +41,30 @@ class DilutionCalculator(Task):
 
         # Stock
         "stock_conc": StrParam(default_value="", short_description="Stock concentration (numeric)"),
-        "stock_unit": StrParam(
+        "stock_unit": SelectParam(
             default_value="mM",
-            allowed_values=["M", "mM", "µM", "nM", "pM"],
+            options=["M", "mM", "µM", "nM", "pM"],
             short_description="Stock concentration unit"
         ),
 
         # Final target
         "final_conc": StrParam(default_value="", short_description="Final concentration (numeric)"),
-        "final_unit": StrParam(
+        "final_unit": SelectParam(
             default_value="mM",
-            allowed_values=["M", "mM", "µM", "nM", "pM"],
+            options=["M", "mM", "µM", "nM", "pM"],
             short_description="Final concentration unit"
         ),
         "final_vol": StrParam(default_value="", short_description="Final volume (numeric)"),
-        "final_vol_unit": StrParam(
+        "final_vol_unit": SelectParam(
             default_value="mL",
-            allowed_values=["L", "mL", "µL"],
+            options=["L", "mL", "µL"],
             short_description="Final volume unit"
         ),
 
         # NEW: output display unit for V1 (optional). If left blank, worker uses final_vol_unit.
-        "stock_vol_unit_out": StrParam(
+        "stock_vol_unit_out": SelectParam(
             default_value="mL",
-            allowed_values=["L", "mL", "µL"],
+            options=["L", "mL", "µL"],
             short_description="(Optional) Output unit for V1. Leave empty to use the same unit as final volume."
         ),
     })
