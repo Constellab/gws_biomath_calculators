@@ -23,9 +23,10 @@ Find more information about the Open Access offer here (link to be defined).
 
 ## ✅ Features
 
-- Suite of tools for biomath conversion operations  
-- Ready-to-use calculators for common biomathematical workflows  
-- Seamless integration within the Constellab ecosystem
+Suite of ready-to-use molecular biology calculators for Constellab:
+- **Nucleic acid mass/molar conversions**: OD260 to µg/ml, dsDNA µg ↔ pmol, ssDNA µg/ml ↔ pmol/µl, linear DNA µg to pmol of ends, ligation molar ratio (insert:vector)
+- **General lab calculators**: dilution calculator, molarity calculator, molar conversions (protein), temperature conversion
+- **Sequence analysis**: GC content calculator (HTML report), DNA translation (per-frame ORF tables), DNA/RNA/protein molecular weight calculator, coding capacity of DNA
 
 ---
 
@@ -39,7 +40,7 @@ Find more information about the Open Access offer here (link to be defined).
 
 ## 🛠️ Installation
 
-The `gws_biomath_calculators` brick requires the `gws_core` brick (v0.18.0).
+The `gws_biomath_calculators` brick requires the `gws_core` brick (v0.20.7).
 
 ### 🔥 Recommended Method
 
@@ -92,7 +93,7 @@ gws server test all
 
 ## 🌎 License
 
-```gws_biomath_calculator``` is completely free and open-source and licensed free
+```gws_biomath_calculators``` is completely free and open-source and licensed under the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html).
 <br/>
 
 
